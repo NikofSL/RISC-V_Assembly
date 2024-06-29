@@ -54,5 +54,7 @@ RISC-V has several instruction formats including R-type, I-type, S-type, B-type,
     call exit
 
  # Simulators
-
  The website [BRISC-V Simulator](https://ascslab.org/research/briscv/simulator/simulator.html) hosts an online RISC-V simulator developed by the Advanced Computer Systems Lab (ACSL). This simulator allows users to write, compile, and simulate RISC-V assembly code directly in the browser, providing an interactive environment for learning and experimenting with the RISC-V architecture.
+
+ # Linux kernel system calls for all architectures
+ The website [https://gpages.juszkiewicz.com.pl](https://gpages.juszkiewicz.com.pl/syscalls-table/syscalls.html), syscalls-table, provides comprehensive information about Linux system calls across different architectures. It is designed to assist developers in understanding the various system calls available in the Linux kernel and their corresponding numbers, which can vary between different architectures.
