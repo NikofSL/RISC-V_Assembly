@@ -53,6 +53,52 @@ RISC-V has several instruction formats including R-type, I-type, S-type, B-type,
     # Exit the program
     call exit
 
+# Emulator
+***If you are compiling RISC-V binaries, you can use an emulator like QEMU to run them on your x86_64 machine.
+To use an emulator like QEMU to run a RISC-V binary on an x86_64 system, follow these steps:***
+### 1. Install the RISC-V Toolchain and QEMU
+First, ensure you have the RISC-V GNU toolchain and QEMU installed on your system.
+* For Ubuntu/Debian:
+```
+sudo add-apt-repository ppa:pkg-qemu/qemu
+sudo apt-get update
+sudo apt install gcc-riscv64-linux-gnu qemu qemu-system-misc qemu-user qemu-user-static
+```
+* For Fedora:
+```
+sudo add-apt-repository ppa:pkg-qemu/qemu
+sudo apt-get update
+sudo dnf install gcc-riscv64-linux-gnu qemu qemu-system-misc qemu-user qemu-user-static
+```
+## Verify QEMU Installation
+* After installation, verify that the RISC-V binaries are available:
+```
+qemu-riscv64 --version
+```
+### 2. Write Your RISC-V Assembly Program
+   * Create a simple RISC-V assembly program, for example, hello.s:
+```
+.global _start
+
+.section .text
+_start:
+    addi a7, zero, 93     # syscall number for exit
+    addi a0, zero, 0      # exit status 0
+    ecall                 # make syscall
+```
+### 3. Compile the RISC-V Assembly Program
+   * Use the RISC-V assembler to compile the assembly program into an object file, then link it into an executable:
+```
+riscv64-linux-gnu-as hello.s -o hello.o
+riscv64-linux-gnu-gcc -o hello hello.o -nostdlib -static
+```
+### 4. Run the RISC-V Binary Using QEMU
+   * Now, use QEMU to emulate a RISC-V environment and run your compiled binary:
+```
+qemu-riscv64 hello
+```
+
+ 
  # Simulators
  The website [BRISC-V Simulator](https://ascslab.org/research/briscv/simulator/simulator.html) hosts an online RISC-V simulator developed by the Advanced Computer Systems Lab (ACSL). This simulator allows users to write, compile, and simulate RISC-V assembly code directly in the browser, providing an interactive environment for learning and experimenting with the RISC-V architecture.
 
