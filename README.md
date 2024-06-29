@@ -70,7 +70,7 @@ sudo add-apt-repository ppa:pkg-qemu/qemu
 sudo apt-get update
 sudo dnf install gcc-riscv64-linux-gnu qemu qemu-system-misc qemu-user qemu-user-static
 ```
-## Verify QEMU Installation
+Verify QEMU Installation
 * After installation, verify that the RISC-V binaries are available:
 ```
 qemu-riscv64 --version
