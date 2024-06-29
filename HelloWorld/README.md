@@ -20,3 +20,6 @@
     * ecall (environment call) is used to make a system call to the operating system. Here, it triggers the exit system call with the value in a0 as the exit status.
 ###Summary:
 This RISC-V assembly program sets up an exit system call with a return value of 2 and then makes the system call to terminate the program.
+
+# System call Info
+For further information on system call codes, you can refer to this resource [resource](https://gpages.juszkiewicz.com.pl/syscalls-table/syscalls.html).
